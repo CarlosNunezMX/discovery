@@ -5,6 +5,11 @@ export const Router = new Hono()
 
 function endpoint(c: Context): Response {
     const res_data = {
+        _declaration: {
+            _attributes: {
+                version: "1.0"
+            }
+        },
         result: {
             has_error: 0,
             version: 1,
@@ -20,16 +25,10 @@ function endpoint(c: Context): Response {
     if (c.req.header()["accept"] === "application/json") {
         return c.json(res_data, 200);
     }
+    c.header("Content-Type", "application/xml")
+    const res = js2xml(res_data, {compact: true, spaces: 2});
+    return c.text(res)
 
-    return new Response(
-        '<?xml version="1.0"?>' + js2xml(res_data),
-        {
-            headers: {
-                "Content-Type": "application/xml"
-            },
-            status: 200
-        }
-    )
 }
 
 Router.get('/endpoint', endpoint);
