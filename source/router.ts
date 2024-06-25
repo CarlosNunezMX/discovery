@@ -22,7 +22,7 @@ function endpoint(c: Context): Response {
     }
 
     return new Response(
-        js2xml(res_data, { compact: true }),
+        js2xml(res_data, { compact: true, ignoreDeclaration: false }),
         {
             headers: {
                 "Content-Type": "application/xml"
