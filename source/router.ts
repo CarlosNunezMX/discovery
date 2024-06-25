@@ -25,9 +25,11 @@ function endpoint(c: Context): Response {
     if (c.req.header()["accept"] === "application/json") {
         return c.json(res_data, 200);
     }
-    c.header("Content-Type", "application/xml")
+    
     const res = js2xml(res_data, {compact: true, spaces: 2});
-    return c.text(res)
+    return new Response(res, {status: 200, headers: {
+        "Content-Type": "application/xml"
+    }})
 
 }
 
