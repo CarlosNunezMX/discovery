@@ -22,7 +22,7 @@ function endpoint(c: Context): Response {
     }
 
     return new Response(
-        '<?xml version="1.0"?>\n' + js2xml(res_data),
+        '<?xml version="1.0"?>' + js2xml(res_data),
         {
             headers: {
                 "Content-Type": "application/xml"
