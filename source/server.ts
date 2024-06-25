@@ -3,6 +3,10 @@ import { logger } from "hono/logger";
 import { Router } from "./router";
 const app = new Hono();
 
+app.use("*", (c, next) => {
+    c.header("X-Dispatch", "Olive::Web::Discovery::V1::Endpoint-index")
+    return next()
+});
 app.use('*', logger())
 app.route('/', Router);
 
