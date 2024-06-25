@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "hono": "^4.3.7",
-    "redbird": "^0.10.0",
     "xml-js": "^1.6.11"
+  },
+  "scripts": {
+    "start": "bun source/server.ts"
   }
 }

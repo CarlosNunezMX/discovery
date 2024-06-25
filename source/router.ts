@@ -9,7 +9,7 @@ function endpoint(c: Context): Response {
             has_error: 0,
             version: 1,
             endpoint: {
-                host: process.env.DISCOVERY_HOST,
+                host: process.env.HOST,
                 api_host: process.env.API_HOST,
                 portal_host: process.env.PORTAL_HOST,
                 n3ds_host: process.env.N3DS_HOST
