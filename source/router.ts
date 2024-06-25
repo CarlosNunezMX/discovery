@@ -28,7 +28,8 @@ function endpoint(c: Context): Response {
     
     const res = js2xml(res_data, {compact: true, spaces: 2});
     return new Response(res, {status: 200, headers: {
-        "Content-Type": "application/xml"
+        "Content-Type": "application/xml",
+        "X-Dispatch": "Olive::Web::Discovery::V1::Endpoint-index"
     }})
 
 }
