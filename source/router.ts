@@ -22,7 +22,7 @@ function endpoint(c: Context): Response {
     }
 
     return new Response(
-        '<?xml version="1.0" encoding="UTF-8"?>' + js2xml(res_data, { compact: true, ignoreDeclaration: false }),
+        '<?xml version="1.0"?>' + js2xml(res_data, { compact: true, ignoreDeclaration: false }),
         {
             headers: {
                 "Content-Type": "application/xml"
